@@ -1,0 +1,26 @@
+.cards-collection {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	align-items: center;
+	justify-content: center;
+
+	@media screen and (min-width: 1000px) {
+		display: grid;
+		grid-template: repeat(4, 1fr) / 1fr 1fr;
+		padding-left: 1em;
+	}
+}
+
+.mouse-icon {
+	display: none;
+
+	@media screen and (min-width: 1000px) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: auto;
+		font-size: 2rem;
+		z-index: 1;
+	}
+}

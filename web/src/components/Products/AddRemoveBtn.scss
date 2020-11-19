@@ -1,0 +1,22 @@
+.add-remove-product {
+	margin: 0 0 0 0.8em;
+	width: 100%;
+	font-size: 1.2em;
+}
+
+.remove-product,
+.add-product {
+	border-style: none;
+	background-color: transparent;
+	margin: 0 1em;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.minus-icon,
+.plus-icon {
+	height: 0.9em;
+	margin: 0;
+}

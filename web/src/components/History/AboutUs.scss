@@ -1,0 +1,25 @@
+.about-us {
+	padding: 1.2rem;
+	margin: 2rem auto;
+	background-color: var(--clr-secondary);
+	color: var(--clr-background);
+
+	@media screen and (min-width: 650px) {
+		padding: 1.2rem 1.5rem;
+	}
+	@media screen and (min-width: 1000px) {
+		padding: 1.2rem 1.8rem;
+	}
+	@media screen and (min-width: 1300px) {
+		padding: 1.2rem 2rem;
+	}
+}
+
+.about-us h2 {
+	margin-bottom: 0.5em;
+	text-align: center;
+}
+
+.about-us p {
+	text-align: left;
+}

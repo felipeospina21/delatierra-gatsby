@@ -1,0 +1,33 @@
+.home-history {
+	padding: 1.2rem;
+	margin: 2rem auto;
+	background-color: var(--clr-secondary);
+	color: var(--clr-background);
+	text-align: left;
+	line-height: 1.5rem;
+}
+
+.home-products-title {
+	display: flex;
+	justify-content: center;
+	margin: 1em auto;
+}
+
+@media screen and (min-width: 650px) {
+	.home-history {
+		padding: 1.2rem 2rem;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.home-history {
+		padding: 1.2rem 2.5rem;
+	}
+}
+@media screen and (min-width: 1000px) {
+	.home-history {
+		padding: 2rem 4rem;
+		font-size: 1.2rem;
+		line-height: 1.7rem;
+	}
+}

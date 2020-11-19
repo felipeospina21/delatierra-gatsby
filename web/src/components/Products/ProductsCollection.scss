@@ -1,0 +1,23 @@
+.products-collection {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	// flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	margin: 0;
+
+	@media screen and (min-width: 1000px) {
+		display: grid;
+		grid-template: repeat(2, 1fr) / 1fr 1fr;
+		// padding-left: 1em;
+	}
+}
+
+.products-collection-title {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

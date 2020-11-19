@@ -1,0 +1,37 @@
+.login-form {
+    // border: 1px solid var(--clr-primary);
+    height: 300px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1em auto;
+    padding: 1em 0;
+
+    label{
+        font-weight: 600;
+    }
+
+    input{
+        border:2px solid var(--clr-secondary);
+        padding: 0.5em;
+        width: 70%;
+        
+        &.login-input-btn{
+            width: 8em;
+            background-color: var(--clr-primary);
+            color: var(--clr-background);
+            border:none;
+            margin: 1em;
+        }
+    }
+    
+}
+
+.login-title{
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+
