@@ -16,8 +16,7 @@ export const handleLogin = async ({ email, password }) => {
     setUser({
       username: result.user,
     });
-    navigate(`/app/inventario`);
-    console.log(result.user);
+    await navigate(`/app/inventario`);
   } catch (err) {
     console.log(err);
     return false;
