@@ -16,9 +16,9 @@ const InventoryContainer = () => {
     firebase
       .firestore()
       .collection("productos")
-      .onSnapshot((querySnapshot) => {
+      .onSnapshot(( querySnapshot) => {
         const docs = [];
-        querySnapshot.forEach((doc) => {
+         querySnapshot.forEach((doc) => {
           docs.push({ ...doc.data(), id: doc.id, saleCount: 0, inventCount: 0 });
         });
         setProducts(docs);
@@ -37,7 +37,7 @@ const InventoryContainer = () => {
       return { ...product, saleCount: 0, inventCount: 0, subTotal: 0 };
     });
     setProducts(newProducts);
-    console.log("BD Modificada");
+    await console.log("BD Modificada");
   };
 
   return (
