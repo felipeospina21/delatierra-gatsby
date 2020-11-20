@@ -1,54 +1,61 @@
-import React, { useState } from 'react';
-import ProductRow from './ProductRow';
-import Total from './Total';
-import firebase from 'gatsby-plugin-firebase';
+import React, {useState} from "react";
+import ProductRow from "./ProductRow";
+import DeliveryCost from "./DeliveryCost";
+import Total from "./Total";
 
-import './InventoryProduct.scss';
+import "./InventoryProduct.scss";
 
-const ProductsTable = ({ products, setProducts }) => {
-	const addProductsToCart = async products => {
-		products.map(product => {
-			firebase
-				.firestore()
-				.collection('productos')
-				.doc(product.id)
-				.update({ quantity: product.quantity });
-		});
-		console.log('BD Modificada');
-		// console.log(products)
-	};
+const ProductsTable = ({ products, setProducts, updateInventory }) => {
+  const [deliveryCost, setDeliveryCost] = useState(0);
+  
+  const delivery = [
+    { name: "- Seleccione Ciudad -", cost: 0 },
+    { name: "Medellin", cost: 7000 },
+    { name: "Bello", cost: 9000 },
+    { name: "Sabaneta", cost: 8000 },
+    { name: "Caldas", cost: 10000 },
+  ];
 
-	return (
-		<div className='table-inventory-container'>
-			<table className='table-inventory-table'>
-				<thead>
-					<tr>
-						<th>Producto</th>
-						<th>Invent</th>
-						<th>Cantidad</th>
-						<th>Sub Total</th>
-					</tr>
-				</thead>
-				<tbody>
-					{products.map(product => {
-						return (
-							<ProductRow
-								key={product.name}
-								product={product}
-								products={products}
-								setProducts={setProducts}
-							/>
-						);
-					})}
-				</tbody>
-			</table>
-			<Total products={products} />
+  return (
+    <div className="table-inventory-container">
+      <table className="table-inventory-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Invent</th>
+            <th>Cantidad</th>
+            <th>Sub Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product) => {
+            return (
+              <ProductRow
+                key={product.name}
+                product={product}
+                products={products}
+                setProducts={setProducts}
+              />
+            );
+          })}
+        </tbody>
+      </table>
 
-			<button className='sale-btn' onClick={() => addProductsToCart(products)}>
-				Vender
-			</button>
-		</div>
-	);
+      <div className="inventory-checkout-container">
+        <DeliveryCost delivery={delivery} deliveryCost={deliveryCost} setDeliveryCost={setDeliveryCost}/>
+        <Total products={products} deliveryCost={deliveryCost}/>
+      </div>
+
+      <button
+        className="sale-btn"
+        onClick={() => {
+          updateInventory(products);
+        }}
+      >
+        Vender
+      </button>
+    </div>
+  );
 };
 
 export default ProductsTable;
