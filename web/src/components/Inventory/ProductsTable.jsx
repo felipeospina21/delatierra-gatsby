@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ProductRow from "./ProductRow";
 import DeliveryCost from "./DeliveryCost";
 import Total from "./Total";
@@ -7,13 +7,13 @@ import "./InventoryProduct.scss";
 
 const ProductsTable = ({ products, setProducts, updateInventory }) => {
   const [deliveryCost, setDeliveryCost] = useState(0);
-  
+
   const delivery = [
     { name: "- Seleccione Ciudad -", cost: 0 },
-    { name: "Medellin", cost: 7000 },
-    { name: "Bello", cost: 9000 },
-    { name: "Sabaneta", cost: 8000 },
-    { name: "Caldas", cost: 10000 },
+    { name: "Envigado", cost: 5000 },
+    { name: "Medellin, Itagui, Sabaneta", cost: 7000 },
+    { name: "Bello, La Estrella", cost: 9000 },
+    { name: "Caldas, Copacabana, Girardota", cost: 14000 },
   ];
 
   return (
@@ -42,8 +42,12 @@ const ProductsTable = ({ products, setProducts, updateInventory }) => {
       </table>
 
       <div className="inventory-checkout-container">
-        <DeliveryCost delivery={delivery} deliveryCost={deliveryCost} setDeliveryCost={setDeliveryCost}/>
-        <Total products={products} deliveryCost={deliveryCost}/>
+        <DeliveryCost
+          delivery={delivery}
+          deliveryCost={deliveryCost}
+          setDeliveryCost={setDeliveryCost}
+        />
+        <Total products={products} deliveryCost={deliveryCost} />
       </div>
 
       <button
