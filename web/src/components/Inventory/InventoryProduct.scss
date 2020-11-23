@@ -115,6 +115,16 @@
 
 }
 
+.inventory-table-caption{
+	text-align: left;
+	margin-bottom: 1em;
+	margin-left:0.5em;
+	color: var(--clr-secondary);
+	font-weight: 600;
+	font-size: 1.2rem;
+	text-decoration: underline;
+}
+
 .inventory-total{
 	@extend .inventory-delivery-cost-container;
 	width: 10rem;

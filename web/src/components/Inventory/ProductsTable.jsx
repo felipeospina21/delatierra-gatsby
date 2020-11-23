@@ -19,6 +19,7 @@ const ProductsTable = ({ products, setProducts, updateInventory }) => {
   return (
     <div className="table-inventory-container">
       <table className="table-inventory-table">
+        <caption className='inventory-table-caption'>Tabla de Ventas</caption>
         <thead>
           <tr>
             <th>Producto</th>
