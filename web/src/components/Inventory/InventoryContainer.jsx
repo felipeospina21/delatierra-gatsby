@@ -2,15 +2,23 @@ import React, { useState, useEffect } from "react";
 import ProductsTable from "./ProductsTable";
 import InventoryTable from "./InventoryTable";
 import firebase from "gatsby-plugin-firebase";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 import "./InventoryProduct.scss";
 
 const InventoryContainer = () => {
   const [products, setProducts] = useState([]);
-  const notifySucces = () => toast.success("BD Modificada con éxito!" ,{ autoClose: 3000 });
-  const notifyError = () => toast.error("No se pudo modificar la BD!" ,{ autoClose: 3000 });
+  const notifySucces = () =>
+    toast.success("BD Modificada con éxito!", {
+      autoClose: 3000,
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
+  const notifyError = () =>
+    toast.error("No se pudo modificar la BD!", {
+      autoClose: 3000,
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
 
   useEffect(() => {
     getInventory();
@@ -20,9 +28,9 @@ const InventoryContainer = () => {
     firebase
       .firestore()
       .collection("productos")
-      .onSnapshot(( querySnapshot) => {
+      .onSnapshot((querySnapshot) => {
         const docs = [];
-         querySnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc) => {
           docs.push({ ...doc.data(), id: doc.id, saleCount: 0, inventCount: 0 });
         });
         setProducts(docs);
@@ -30,7 +38,7 @@ const InventoryContainer = () => {
   };
 
   const updateInventory = async (products) => {
-    try{
+    try {
       products.map((product) => {
         firebase
           .firestore()
@@ -42,14 +50,11 @@ const InventoryContainer = () => {
         return { ...product, saleCount: 0, inventCount: 0, subTotal: 0 };
       });
       setProducts(newProducts);
-      notifySucces()
+      notifySucces();
+    } catch (err) {
+      notifyError();
+      console.log(err);
     }
-    catch(err){
-      notifyError()
-      console.log(err)
-    }
-    
-  
   };
 
   return (
