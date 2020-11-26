@@ -6,7 +6,7 @@ const InventoryTable = ({ products, setProducts, updateInventory }) => {
   return (
     <div className="table-inventory-container">
       <table className="table-inventory-table">
-      <caption className='inventory-table-caption'>Tabla de Inventario</caption>
+        <caption className="inventory-table-caption">Tabla de Inventario</caption>
         <thead>
           <tr>
             <th>Producto</th>

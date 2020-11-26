@@ -1,13 +1,31 @@
 .product-info-container {
-	margin: 0.5em;
+	margin: 1em auto;
+	line-height: 1.5em;
+	max-width: 800px;
+	justify-self: center;
+
+	p, ul{
+		font-size: 1rem;
+	}
+
 }
 
 .product-info-title {
 	color: var(--clr-secondary);
+	margin: 0.2em 0.5em;
+
+	@media screen and (min-width: 650px){
+		margin: 0.5em 0.2em;
+	}
 }
 
 .product-info-text {
+	margin-left: 0.5em;
+
 }
 
 .product-info-list {
+	list-style-type: square;
+	margin-left: 1.5em;
+
 }

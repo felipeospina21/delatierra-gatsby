@@ -32,6 +32,11 @@
 	width: 100%;
 	position: relative;
 	overflow: auto;
+
+	& table {
+		width: 95%;
+		margin: 0.2em;
+	}
 }
 
 .cart-item {

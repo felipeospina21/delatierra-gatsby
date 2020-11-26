@@ -4,7 +4,7 @@ import Image from '../../components/image';
 
 import './Card.scss';
 
-const Card = ({ id, title, imageUrl, excerpt, size }) => {
+const Card = ({ id, title, imageUrl, excerpt, size, slug }) => {
 	return (
 		<div className={`card ${id % 2 > 0 ? 'right-col' : 'left-col'} r${id + 1}`}>
 			<div className='card__img__container'>
@@ -15,7 +15,7 @@ const Card = ({ id, title, imageUrl, excerpt, size }) => {
 				<p className='card__body'>{excerpt}</p>
 				<p className='card__body'>{`Presentación: ${size[0]} y ${size[1]}`}.</p>
 				<p className='card__body'>
-					<Link to='/productos'>Conoce más</Link>
+					<Link to={`/${slug}`}>Conoce más</Link>
 				</p>
 			</div>
 		</div>
