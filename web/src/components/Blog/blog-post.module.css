@@ -61,6 +61,14 @@
 	}
 }
 
+.mainContent p {
+	margin: 1em 0;
+}
+
+.mainContent li {
+	margin: 0.5em 0;
+}
+
 .metaContent {
 }
 
